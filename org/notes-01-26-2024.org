@@ -1,0 +1,67 @@
+#+title: Notes 01 26 2024
+
+* Have versus need
+ - [ ] Add two flags for active / not active and continued / discontinued
+ - [X] Github
+ - [ ] Make route URLs better
+
+ - [ ] Dashboard Bus On-Time Performance comparisons:
+        San Diego: >85% across the board (link)
+        Portland: ~85% (link)
+        Seattle (King County): ~75-80% (link)
+        Dallas: ~75-80% (link)
+        https://www.soundtransit.org/ride-with-us/system-performance-tracker/peer-comparisons
+ - [ ] Add flag to calendar for temporary routes
+
+* Call with Keith
+Useful to break data down by boardings per run aggregated into peak, midday, evening, morning + day etc.
+**  Stop > route
+ Stop by stop tri-annual ridership data
+**  Boardings and alightings
+ Have to guess transfers here since we don't have hard data
+**  Route individual stops
+- Tri-annual boardings sorted by most to least
+- Tri-annual boardings sorted by temporal order (first stop to last stop for each direction) with # of boardings and # of alightings
+"Step 1 tri-annual average daily boardings, Step 2 tri-annual daily boardings, one for weekdays, one for weekends, one for average, Step 3 breaking down by service period in the day, early morning, morning peak, midday, other, pm peak, pm evening, pm late (define these in UI, these refer to times of day regardless of route and direction), don't want it broken by ridership per run, first steps we want actual # of boardings"
+
+** From left to right, order columns should come in (left implies order of implementation)
+Service period as filter is better
+
+Should come up when you put selector to service period = "all"
+- Stop name
+- Stop code
+- Stop number (order it appears in direction)
+- Average daily boardings
+- Average daily boardings weekday only
+- Average daily boardings weekend only
+- Boardings per trip
+- Trips per period
+- Schedule
+- Period
+
+
+Should come up when you put selector to service period = "AM Early" / "AM Peak" etc. same columns but filtered to period
+- Stop name
+- Stop code
+- Stop number (order it appears in direction)
+- Average daily boardings
+- Average daily boardings weekday only
+- Average daily boardings weekend only
+- Boardings per trip
+- Trips per period
+- Schedule
+- Period
+
+*** Filters - most to least useful
+**** Minimally
+Up to 3 simultaneously
+- Schedule
+- Service period ("all" is an option)
+- Route with direction
+**** Ideally
+- Stop
+
+** Initial delivery should be CSV
+User can sort or filter themself in excel, programming language, sheets
+
+"minimum is by route, nice to bypass that by punching in stop code, schedule (may 2024), and service period in the day and get that one line with 10 columns"

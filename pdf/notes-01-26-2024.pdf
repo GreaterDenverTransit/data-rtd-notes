@@ -1,0 +1,116 @@
+% Created 2025-01-26 Sun 16:39
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\author{Emma Griffin}
+\date{\today}
+\title{Notes 01 26 2024}
+\hypersetup{
+ pdfauthor={Emma Griffin},
+ pdftitle={Notes 01 26 2024},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.1 (Org mode 9.7)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Have versus need}
+\label{sec:org19abfb9}
+\begin{itemize}
+\item[{$\square$}] Add two flags for active / not active and continued / discontinued
+\item[{$\boxtimes$}] Github
+\item[{$\square$}] Make route URLs better
+
+\item[{$\square$}] Dashboard Bus On-Time Performance comparisons:
+San Diego: >85\% across the board (link)
+Portland: \textasciitilde{}85\% (link)
+Seattle (King County): \textasciitilde{}75-80\% (link)
+Dallas: \textasciitilde{}75-80\% (link)
+\url{https://www.soundtransit.org/ride-with-us/system-performance-tracker/peer-comparisons}
+\item[{$\square$}] Add flag to calendar for temporary routes
+\end{itemize}
+\section{Call with Keith}
+\label{sec:org5edf0d9}
+Useful to break data down by boardings per run aggregated into peak, midday, evening, morning + day etc.
+\subsection{Stop > route}
+\label{sec:orga682b25}
+Stop by stop tri-annual ridership data
+\subsection{Boardings and alightings}
+\label{sec:org9528cdb}
+Have to guess transfers here since we don't have hard data
+\subsection{Route individual stops}
+\label{sec:orgd1a1f4b}
+\begin{itemize}
+\item Tri-annual boardings sorted by most to least
+\item Tri-annual boardings sorted by temporal order (first stop to last stop for each direction) with \# of boardings and \# of alightings
+\end{itemize}
+``Step 1 tri-annual average daily boardings, Step 2 tri-annual daily boardings, one for weekdays, one for weekends, one for average, Step 3 breaking down by service period in the day, early morning, morning peak, midday, other, pm peak, pm evening, pm late (define these in UI, these refer to times of day regardless of route and direction), don't want it broken by ridership per run, first steps we want actual \# of boardings''
+\subsection{From left to right, order columns should come in (left implies order of implementation)}
+\label{sec:org1ea7023}
+Service period as filter is better
+
+Should come up when you put selector to service period = ``all''
+\begin{itemize}
+\item Stop name
+\item Stop code
+\item Stop number (order it appears in direction)
+\item Average daily boardings
+\item Average daily boardings weekday only
+\item Average daily boardings weekend only
+\item Boardings per trip
+\item Trips per period
+\item Schedule
+\item Period
+\end{itemize}
+
+
+Should come up when you put selector to service period = ``AM Early'' / ``AM Peak'' etc. same columns but filtered to period
+\begin{itemize}
+\item Stop name
+\item Stop code
+\item Stop number (order it appears in direction)
+\item Average daily boardings
+\item Average daily boardings weekday only
+\item Average daily boardings weekend only
+\item Boardings per trip
+\item Trips per period
+\item Schedule
+\item Period
+\end{itemize}
+\subsubsection{Filters - most to least useful}
+\label{sec:org15656e1}
+\begin{enumerate}
+\item Minimally
+\label{sec:org96088b4}
+Up to 3 simultaneously
+\begin{itemize}
+\item Schedule
+\item Service period (``all'' is an option)
+\item Route with direction
+\end{itemize}
+\item Ideally
+\label{sec:org6039b46}
+\begin{itemize}
+\item Stop
+\end{itemize}
+\end{enumerate}
+\subsection{Initial delivery should be CSV}
+\label{sec:org2af9f11}
+User can sort or filter themself in excel, programming language, sheets
+
+``minimum is by route, nice to bypass that by punching in stop code, schedule (may 2024), and service period in the day and get that one line with 10 columns''
+\end{document}
